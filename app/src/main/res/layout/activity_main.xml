@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/UpperContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/ImageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="22mm"
+                app:srcCompat="@drawable/car_image"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/CarMpgContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/CarsMpgText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type The Mpg :"
+                android:layout_marginTop="2mm"
+                android:layout_marginRight="16mm"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
+
+            <!-- Input Field 1 -->
+            <EditText
+                android:id="@+id/CarMpgInput"
+                android:layout_width="50mm"
+                android:layout_height="48dp"
+                android:layout_marginTop="2mm"
+                android:background="@drawable/border_background"
+                android:hint="Cars' Mpg .."
+                android:inputType="numberDecimal"
+                android:padding="30px"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CarDisplacementContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/CarsDisplacementText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type The Displacement :"
+                android:layout_marginTop="2mm"
+                android:layout_marginRight="11mm"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
+
+            <!-- Input Field 1 -->
+            <EditText
+                android:id="@+id/CarDisplacementInput"
+                android:layout_width="50mm"
+                android:layout_height="48dp"
+                android:layout_marginTop="2mm"
+                android:background="@drawable/border_background"
+                android:hint="Cars' Displacement .."
+                android:inputType="numberDecimal"
+                android:padding="30px"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CarHPContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/CarsHorsePowerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type The HorsePower :"
+                android:layout_marginTop="2mm"
+                android:layout_marginRight="11mm"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
+
+            <!-- Input Field 1 -->
+            <EditText
+                android:id="@+id/CarHorsePowerInput"
+                android:layout_width="50mm"
+                android:layout_height="48dp"
+                android:layout_marginTop="2mm"
+                android:background="@drawable/border_background"
+                android:hint="Cars' HorsePower .."
+                android:textStyle="italic"
+                android:inputType="numberDecimal"
+                android:padding="30px"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CarWeightContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/CarsWeightText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type The Weight :"
+                android:layout_marginTop="2mm"
+                android:layout_marginRight="14mm"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <!-- Input Field 1 -->
+            <EditText
+                android:id="@+id/CarWeightInput"
+                android:layout_width="50mm"
+                android:layout_height="48dp"
+                android:layout_marginTop="2mm"
+                android:background="@drawable/border_background"
+                android:hint="Cars' Weight .."
+                android:inputType="numberDecimal"
+                android:textStyle="italic"
+                android:padding="30px"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/CarSpeedContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/CarsSpeedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type The Acceleration :"
+                android:layout_marginTop="2mm"
+                android:layout_marginRight="11mm"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
+
+            <!-- Input Field 1 -->
+            <EditText
+                android:id="@+id/CarSpeedInput"
+                android:layout_width="50mm"
+                android:layout_height="48dp"
+                android:layout_marginTop="2mm"
+                android:background="@drawable/border_background"
+                android:hint="Cars' Acceleration .."
+                android:inputType="numberDecimal"
+                android:textStyle="italic"
+                android:padding="30px"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4mm"
+            android:text="ML Algorithm"
+            android:textSize="2.5mm"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/UpperContainer" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
