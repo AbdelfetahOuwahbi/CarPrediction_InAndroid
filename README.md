@@ -1,5 +1,5 @@
 App Overview:
-The app I'm developing is geared towards predicting the origin of a car based on its various attributes, employing the K-Nearest Neighbors (KNN) algorithm. The dataset used for both training and predictions is formatted in JSON, featuring attributes such as MPG, displacement, and more.
+The app I'm developing is geared towards predicting the origin of a car based on its various attributes, employing the K-Nearest Neighbors (KNN) algorithm , Naive Bayes Algorithm And Decision Tree Algorithm. The dataset used for both training and predictions is formatted in JSON, featuring attributes such as MPG, displacement, and more.
 
 Technologies and Tools:
 Programming Language:
