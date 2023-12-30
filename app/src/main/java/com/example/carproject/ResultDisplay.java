@@ -7,6 +7,9 @@ import android.content.Intent;
 
 import com.example.carproject.Handlers.Cars;
 import com.example.carproject.Handlers.KnnClassifierHandler;
+import com.example.carproject.Handlers.NaiveBayesHandler;
+
+import java.io.IOException;
 
 public class ResultDisplay extends AppCompatActivity {
 
@@ -71,20 +74,27 @@ public class ResultDisplay extends AppCompatActivity {
             }
         }
 
+        //Creating The Object That Will Be Handled By One Of The Algorithms
+        Cars car = new Cars(mpg, displacement, horsePower, weight, speed);
         //Handling The Data For The Appropriate Algorithm (Working And Logging The Result)
         if (selectedAlgorithm.equals("KNN")) {
-
                 KnnClassifierHandler knnClassifier = new KnnClassifierHandler(this);
-                Cars car = new Cars(mpg, displacement, horsePower, weight, speed);
             try {
-                String predictedAlgo = knnClassifier.knnWorkInBackground(kValue, car);
-                Log.d("predictedAlgo", "predictedAlgo: " + predictedAlgo);
+                String predictedOrigin = knnClassifier.knnWorkInBackground(kValue, car);
+                Log.d("predictedOriginKNN", "predictedAlgoUsingKNN: " + predictedOrigin);
             } catch (Throwable e) {
                 throw new RuntimeException(e);
             }
 
+        } else if (selectedAlgorithm.equals("Bayes Network")) {
+            NaiveBayesHandler naiveBayes = new NaiveBayesHandler(this);
+             try {
+                String predictedOrigin = naiveBayes.NaiveBayesWorkInBackground(car);
+                    Log.d("predictedOrigin_NB", "predictedAlgoUsingNaiveBayes: " + predictedOrigin);
+             } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-
 
 
     }
