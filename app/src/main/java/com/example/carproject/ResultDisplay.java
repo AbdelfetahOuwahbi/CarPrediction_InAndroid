@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 
 import com.example.carproject.Handlers.Cars;
+import com.example.carproject.Handlers.DecisionTreeHandler;
 import com.example.carproject.Handlers.KnnClassifierHandler;
 import com.example.carproject.Handlers.NaiveBayesHandler;
 
@@ -92,6 +93,14 @@ public class ResultDisplay extends AppCompatActivity {
                 String predictedOrigin = naiveBayes.NaiveBayesWorkInBackground(car);
                     Log.d("predictedOrigin_NB", "predictedAlgoUsingNaiveBayes: " + predictedOrigin);
              } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            DecisionTreeHandler dtHandler = new DecisionTreeHandler(this);
+            try {
+                String predictedOrigin = dtHandler.DTWorkInBackground(car);
+                Log.d("predictedOrigin_DT", "predictedAlgoUsingDecisionTree: " + predictedOrigin);
+            }catch (IOException e){
                 throw new RuntimeException(e);
             }
         }
