@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AlgorithmActivity extends AppCompatActivity {
@@ -21,6 +23,13 @@ public class AlgorithmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_algorithm);
+
+
+        // Hide the action bar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         // Retrieve data from the intent
         Intent intent = getIntent();
@@ -59,6 +68,14 @@ public class AlgorithmActivity extends AppCompatActivity {
         bayesNetRadioButton = findViewById(R.id.BayesNetradioButton);
         kValueEditText = findViewById(R.id.KNNInput);
         submitButton = findViewById(R.id.Go);
+
+        kValueEditText.setVisibility(View.GONE); // Set initial visibility to GONE
+        knnRadioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                kValueEditText.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            }
+        });
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override

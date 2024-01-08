@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlgorithmActivity">
+    tools:context=".AlgorithmActivity"
+    android:background="@drawable/background_gradient">
 
     <LinearLayout
         android:id="@+id/UpperContainer"
@@ -29,10 +30,15 @@
 
             <RadioButton
                 android:id="@+id/KNNradioButton"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2mm"
-                android:text="KNN Algorithm" />
+                android:padding="8dp"
+                android:text="KNN Algorithm"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,67 +46,66 @@
                 android:layout_marginRight="4mm"
                 android:gravity="end">
 
-                <TextView
-                    android:id="@+id/KNNText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="3mm"
-                    android:inputType="numberDecimal"
-                    android:text="Type K :"
-                    android:textColor="#000000"
-                    android:textSize="40dp"
-                    android:textStyle="italic" />
-
                 <EditText
                     android:id="@+id/KNNInput"
                     android:layout_width="25mm"
                     android:layout_height="48dp"
-                    android:background="@drawable/border_background"
+                    android:background="@drawable/edit_text_selector"
                     android:hint="K number .."
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
+                    android:textColorHint="#FFFFFF"
                     android:padding="30px" />
 
             </LinearLayout>
 
             <RadioButton
                 android:id="@+id/DTradioButton"
-                android:layout_width="wrap_content"
+                android:layout_width="173dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2mm"
                 android:layout_marginTop="4mm"
-                android:text="Decision Tree Algorithm" />
+                android:padding="8dp"
+                android:text="Decision Tree Algorithm"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/BayesNetradioButton"
-                android:layout_width="wrap_content"
+                android:layout_width="164dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2mm"
-                android:text="Bayes Network Algorithm" />
+                android:padding="8dp"
+                android:text="Bayes Network Algorithm"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
         </RadioGroup>
 
         <LinearLayout
             android:id="@+id/ImageContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10mm"
+            android:layout_marginTop="5mm"
             android:gravity="center_horizontal">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="22mm"
-                app:srcCompat="@drawable/car_image" />
+                app:srcCompat="@drawable/wheel" />
         </LinearLayout>
 
         <Button
             android:id="@+id/Go"
-            android:layout_width="201dp"
+            android:layout_width="50mm"
             android:layout_height="wrap_content"
-            android:text="GO"
-            android:textSize="3mm"
+            android:layout_marginTop="4mm"
+            android:text="GO !"
+            android:textSize="2.5mm"
             android:textStyle="italic"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/UpperContainer" />
+            app:layout_constraintTop_toBottomOf="@id/UpperContainer"
+            android:background="@drawable/button_gradient"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

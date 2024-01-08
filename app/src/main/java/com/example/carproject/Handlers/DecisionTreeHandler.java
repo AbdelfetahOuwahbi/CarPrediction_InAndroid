@@ -55,6 +55,7 @@ public class DecisionTreeHandler {
         int sumHorsePower = 0;
         int sumWeight = 0;
         int sumAcceleration = 0;
+
         for (int i = 0; i < mpg.size(); i++) {
             sumMpg += mpg.get(i);
             sumDisplacement += displacement.get(i);
@@ -110,8 +111,6 @@ public class DecisionTreeHandler {
             cars.add(C);
         }
 
-        //The Instance Of Car that Comes As A Parameter
-        Cars CarInstance = new Cars(10, 20, 90, 2000, 20);
 
         //Attributes For The New Car Instance That Will Be Created
         String MpgForInstance;
@@ -120,31 +119,31 @@ public class DecisionTreeHandler {
         String WeightForInstance;
         String AccelerationForInstance;
 
-        if (CarInstance.Mpg > averageMpg) {
+        if (carInstance.Mpg > averageMpg) {
             //Setting A new Mpg Attribute For The Instance That Takes A Higher Or Lower String
             MpgForInstance = "Higher";
         } else {
             MpgForInstance = "Lower";
         }
-        if (CarInstance.Displacement > averageDisplacement) {
+        if (carInstance.Displacement > averageDisplacement) {
             //Setting A new Displacement Attribute For The Instance That Takes A Higher Or Lower String
             DisplacementForInstance = "Higher";
         } else {
             DisplacementForInstance = "Lower";
         }
-        if (CarInstance.HorsePower > averageHorsePower) {
+        if (carInstance.HorsePower > averageHorsePower) {
             //Setting A new HorsePower Attribute For The Instance That Takes A Higher Or Lower String
             HorsePowerForInstance = "Higher";
         } else {
             HorsePowerForInstance = "Lower";
         }
-        if (CarInstance.Weight > averageWeight) {
+        if (carInstance.Weight > averageWeight) {
             //Setting A new Weight Attribute For The Instance That Takes A Higher Or Lower String
             WeightForInstance = "Higher";
         } else {
             WeightForInstance = "Lower";
         }
-        if (CarInstance.Acceleration > averageAcceleration) {
+        if (carInstance.Acceleration > averageAcceleration) {
             //Setting A new Acceleration Attribute For The Instance That Takes A Higher Or Lower String
             AccelerationForInstance = "Higher";
         } else {
@@ -568,36 +567,39 @@ public class DecisionTreeHandler {
                 LeftSeventhNode.data.equals("Displacement") ? newCarInstance.Displacement2 :
                         LeftSeventhNode.data.equals("Horse Power") ? newCarInstance.HorsePower2 :
                                 LeftSeventhNode.data.equals("Weight") ? newCarInstance.Weight2 : newCarInstance.Acceleration2;
+        
+        String Prediction = null;
 
         if (ToPredictRootInIntance.equals(PassFromRootToLeft)) {
 
-            return (LeftSecondNode.data);
+            Prediction = LeftSecondNode.data;
 
         } else if (ToPredictRootInIntance.equals(PassFromRootToRight)) {
+            
             if (ToPredictSecondNodeInIntance.equals(PassFromSecondNodeToLeft)) {
+                
                 if (ToPredictLeftThirdNodeInIntance.equals(PassFromLeftThirdNodeToRight)) {
-                    return (RightSixthNode.data);
+                    Prediction = RightSixthNode.data;
                 } else {
                     if (ToPredictLeftSixthNodeInIntance.equals(PassFromLeftSeventhNodeToRight)) {
-                        return (RightSeventhNode.data);
+                        Prediction = RightSeventhNode.data;
                     } else {
-                        return (LeftSeventhNode.data);
+                        Prediction = LeftSeventhNode.data;
                     }
                 }
             } else {
                 if (ToPredictRightThirdNodeInIntance.equals(PassFromRightThirdNodeToLeft)) {
-                    return (LeftFourthNode.data);
+                    Prediction = LeftFourthNode.data;
                 } else {
                     if (ToPredictRightFourthNodeInIntance.equals(PassFromRightFourthNodeToLeft)) {
-                        return (LeftFivthNode.data);
+                        Prediction = LeftFivthNode.data;
                     } else {
-                        return (RightFivthNode.data);
+                        Prediction = RightFivthNode.data;
                     }
                 }
             }
-        }else {
-            return null;
         }
+        return Prediction;
     }
 
     public static double calculateLog(double x, double y){
@@ -875,6 +877,7 @@ public class DecisionTreeHandler {
 
 
             List<Double> WhichInfosAreCalculated = new ArrayList<>();
+
             for (String Att : RestOfAttributes){
                 if (Att.equals("Mpg")){
                     infoMpg =  DecisionTreeHandler.calculateInfo(cars, "Mpg", HigherJapanese, HigherEuropean,

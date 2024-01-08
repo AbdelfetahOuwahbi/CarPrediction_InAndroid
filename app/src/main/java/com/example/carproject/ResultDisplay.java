@@ -2,8 +2,12 @@ package com.example.carproject;
 
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.carproject.Handlers.Cars;
 import com.example.carproject.Handlers.DecisionTreeHandler;
@@ -13,7 +17,6 @@ import com.example.carproject.Handlers.NaiveBayesHandler;
 import java.io.IOException;
 
 public class ResultDisplay extends AppCompatActivity {
-
     protected double mpg, displacement, weight, speed, horsePower;
     protected String selectedAlgorithm;
 
@@ -23,6 +26,17 @@ public class ResultDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_display);
+
+        TextView upperText = findViewById(R.id.UpperText);
+        TextView predictionText = findViewById(R.id.Prediction);
+
+        ImageView imageView = findViewById(R.id.imageView);
+
+        // Hide the action bar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         // Retrieve data from the intent
         Intent intent = getIntent();
@@ -83,6 +97,15 @@ public class ResultDisplay extends AppCompatActivity {
             try {
                 String predictedOrigin = knnClassifier.knnWorkInBackground(kValue, car);
                 Log.d("predictedOriginKNN", "predictedAlgoUsingKNN: " + predictedOrigin);
+                upperText.setText("The KNN algorithm predicts that the car's origin is:");
+                predictionText.setText(predictedOrigin.toUpperCase());
+                if (predictedOrigin.toUpperCase().equals("JAPANESE")){
+                    imageView.setImageResource(R.drawable.japan_flag);
+                } else if (predictedOrigin.toUpperCase().equals("EUROPEAN")) {
+                    imageView.setImageResource(R.drawable.europe_flag);
+                }else {
+                    imageView.setImageResource(R.drawable.american_flag);
+                }
             } catch (Throwable e) {
                 throw new RuntimeException(e);
             }
@@ -92,6 +115,15 @@ public class ResultDisplay extends AppCompatActivity {
              try {
                 String predictedOrigin = naiveBayes.NaiveBayesWorkInBackground(car);
                     Log.d("predictedOrigin_NB", "predictedAlgoUsingNaiveBayes: " + predictedOrigin);
+                 upperText.setText("The Naive Bayes algorithm predicts that the car's origin is:");
+                 predictionText.setText(predictedOrigin.toUpperCase());
+                 if (predictedOrigin.toUpperCase().equals("JAPANESE")){
+                     imageView.setImageResource(R.drawable.japan_flag);
+                 } else if (predictedOrigin.toUpperCase().equals("EUROPEAN")) {
+                     imageView.setImageResource(R.drawable.europe_flag);
+                 }else {
+                     imageView.setImageResource(R.drawable.american_flag);
+                 }
              } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -100,11 +132,19 @@ public class ResultDisplay extends AppCompatActivity {
             try {
                 String predictedOrigin = dtHandler.DTWorkInBackground(car);
                 Log.d("predictedOrigin_DT", "predictedAlgoUsingDecisionTree: " + predictedOrigin);
+                upperText.setText("The Decision Tree algorithm predicts that the car's origin is:");
+                predictionText.setText(predictedOrigin.toUpperCase());
+                if (predictedOrigin.toUpperCase().equals("JAPANESE")){
+                    imageView.setImageResource(R.drawable.japan_flag);
+                } else if (predictedOrigin.toUpperCase().equals("EUROPEAN")) {
+                    imageView.setImageResource(R.drawable.europe_flag);
+                }else {
+                    imageView.setImageResource(R.drawable.american_flag);
+                }
             }catch (IOException e){
                 throw new RuntimeException(e);
             }
         }
-
 
     }
 

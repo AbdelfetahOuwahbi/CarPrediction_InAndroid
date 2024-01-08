@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_gradient">
 
     <LinearLayout
         android:id="@+id/UpperContainer"
@@ -21,13 +22,31 @@
             android:id="@+id/ImageContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:layout_marginTop="5mm"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
+            <!-- ImageView -->
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="237dp"
                 android:layout_height="22mm"
-                app:srcCompat="@drawable/car_image"/>
+                android:layout_weight="1"
+                app:srcCompat="@drawable/car" />
+
+            <!-- TextView -->
+            <TextView
+                android:id="@+id/TextViewNextToImage"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15mm"
+                android:layout_marginLeft="4mm"
+                android:layout_weight="1"
+                android:text="I Bet You'll Go Classic !"
+                android:textColor="#FFFFFF"
+                android:textSize="3mm"
+                android:textStyle="bold"/>
         </LinearLayout>
+
 
 
         <LinearLayout
@@ -37,25 +56,15 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/CarsMpgText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type The Mpg :"
-                android:layout_marginTop="2mm"
-                android:layout_marginRight="16mm"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
-
             <!-- Input Field 1 -->
             <EditText
                 android:id="@+id/CarMpgInput"
                 android:layout_width="50mm"
-                android:layout_height="48dp"
-                android:layout_marginTop="2mm"
-                android:background="@drawable/border_background"
+                android:layout_height="60dp"
+                android:layout_marginTop="7mm"
+                android:background="@drawable/edit_text_selector"
                 android:hint="Cars' Mpg .."
+                android:textColorHint="#FFFFFF"
                 android:inputType="numberDecimal"
                 android:padding="30px"/>
 
@@ -68,25 +77,15 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/CarsDisplacementText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type The Displacement :"
-                android:layout_marginTop="2mm"
-                android:layout_marginRight="11mm"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
-
             <!-- Input Field 1 -->
             <EditText
                 android:id="@+id/CarDisplacementInput"
                 android:layout_width="50mm"
-                android:layout_height="48dp"
-                android:layout_marginTop="2mm"
-                android:background="@drawable/border_background"
-                android:hint="Cars' Displacement .."
+                android:layout_height="60dp"
+                android:layout_marginTop="3mm"
+                android:hint="Car's Displacement"
+                android:textColorHint="#FFFFFF"
+                android:background="@drawable/edit_text_selector"
                 android:inputType="numberDecimal"
                 android:padding="30px"/>
 
@@ -99,25 +98,15 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/CarsHorsePowerText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type The HorsePower :"
-                android:layout_marginTop="2mm"
-                android:layout_marginRight="11mm"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
-
             <!-- Input Field 1 -->
             <EditText
                 android:id="@+id/CarHorsePowerInput"
                 android:layout_width="50mm"
-                android:layout_height="48dp"
-                android:layout_marginTop="2mm"
-                android:background="@drawable/border_background"
+                android:layout_height="60dp"
+                android:layout_marginTop="3mm"
+                android:background="@drawable/edit_text_selector"
                 android:hint="Cars' HorsePower .."
+                android:textColorHint="#FFFFFF"
                 android:textStyle="italic"
                 android:inputType="numberDecimal"
                 android:padding="30px"/>
@@ -131,25 +120,15 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/CarsWeightText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type The Weight :"
-                android:layout_marginTop="2mm"
-                android:layout_marginRight="14mm"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="italic" />
-
             <!-- Input Field 1 -->
             <EditText
                 android:id="@+id/CarWeightInput"
                 android:layout_width="50mm"
-                android:layout_height="48dp"
-                android:layout_marginTop="2mm"
-                android:background="@drawable/border_background"
+                android:layout_height="60dp"
+                android:layout_marginTop="3mm"
+                android:background="@drawable/edit_text_selector"
                 android:hint="Cars' Weight .."
+                android:textColorHint="#FFFFFF"
                 android:inputType="numberDecimal"
                 android:textStyle="italic"
                 android:padding="30px"/>
@@ -164,25 +143,15 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/CarsSpeedText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type The Acceleration :"
-                android:layout_marginTop="2mm"
-                android:layout_marginRight="11mm"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
-
             <!-- Input Field 1 -->
             <EditText
                 android:id="@+id/CarSpeedInput"
                 android:layout_width="50mm"
-                android:layout_height="48dp"
-                android:layout_marginTop="2mm"
-                android:background="@drawable/border_background"
+                android:layout_height="60dp"
+                android:layout_marginTop="3mm"
+                android:background="@drawable/edit_text_selector"
                 android:hint="Cars' Acceleration .."
+                android:textColorHint="#FFFFFF"
                 android:inputType="numberDecimal"
                 android:textStyle="italic"
                 android:padding="30px"/>
@@ -191,15 +160,17 @@
 
         <Button
             android:id="@+id/btn_submit"
-            android:layout_width="201dp"
+            android:layout_width="50mm"
             android:layout_height="wrap_content"
             android:layout_marginTop="4mm"
             android:text="ML Algorithm"
             android:textSize="2.5mm"
             android:textStyle="italic"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/UpperContainer" />
+            app:layout_constraintTop_toBottomOf="@id/UpperContainer"
+            android:background="@drawable/button_gradient"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,34 @@
+<!-- res/drawable/edit_text_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Border with the pressed state color -->
+            <item>
+                <shape>
+                    <solid android:color="#E0E0E0" /> <!-- Pressed state color, adjust as needed -->
+                    <corners android:radius="4dp" /> <!-- Adjust the corner radius if needed -->
+                </shape>
+            </item>
+            <!-- Border without changing color -->
+            <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+                <shape>
+                    <solid android:color="@android:color/transparent" /> <!-- Transparent background -->
+                    <corners android:radius="4dp" /> <!-- Adjust the corner radius if needed -->
+                    <stroke android:color="#8e44ad" android:width="2dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <!-- Default state without changing color -->
+        <layer-list>
+            <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+                <shape>
+                    <solid android:color="@android:color/transparent" />
+                    <corners android:radius="4dp" />
+                    <stroke android:color="#8e44ad" android:width="2dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

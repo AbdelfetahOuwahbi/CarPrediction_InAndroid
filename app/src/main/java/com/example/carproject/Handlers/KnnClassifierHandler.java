@@ -25,7 +25,9 @@ public class KnnClassifierHandler {
     }
 
     public String knnWorkInBackground(int k, Cars car) throws Throwable {
+
         List<Cars> cars = loadDataSet();
+
         List<Cars> so = calcDistance(cars, car);
         Collections.sort(so);
         List<Cars> finalClassesToChooseFrom = new ArrayList<>();
